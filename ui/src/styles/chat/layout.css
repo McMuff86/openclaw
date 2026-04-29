@@ -1014,3 +1014,26 @@
 
 /* Mobile dropdown toggle — hidden on desktop */
 /* Mobile gear toggle + dropdown are hidden by default in layout.css */
+
+@media (max-width: 768px) {
+  .chat {
+    min-height: 0;
+  }
+
+  .chat-header {
+    gap: 8px;
+  }
+
+  .context-notice,
+  .compaction-indicator,
+  .chat-new-messages {
+    max-width: calc(100% - 16px);
+    white-space: normal;
+    text-align: center;
+  }
+
+  .chat-compose {
+    padding: 10px 2px 2px;
+    gap: 8px;
+  }
+}

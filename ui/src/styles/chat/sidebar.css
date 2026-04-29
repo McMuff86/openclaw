@@ -106,24 +106,53 @@
   font-size: 13px;
 }
 
-/* Mobile: Full-screen modal */
+/* Mobile: stack the War Room/sidebar instead of covering the chat. */
 @media (max-width: 768px) {
+  .chat-split-container {
+    flex-direction: column;
+    gap: 8px;
+    min-height: 0;
+  }
+
+  .chat-main {
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 auto !important;
+  }
+
   .chat-split-container--open {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
+    position: relative;
+    z-index: 0;
   }
 
   .chat-split-container--open .chat-main {
-    display: none; /* Hide chat on mobile when sidebar open */
+    display: flex;
+  }
+
+  .chat-split-container--open resizable-divider {
+    display: none;
   }
 
   .chat-split-container--open .chat-sidebar {
     width: 100%;
     min-width: 0;
+    min-height: 180px;
+    max-height: min(42dvh, 360px);
+    flex: 0 0 auto;
     border-left: none;
+    border-top: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    resize: vertical;
+    background: var(--panel);
+    box-shadow: 0 -14px 38px color-mix(in srgb, black 16%, transparent);
+  }
+
+  .chat-split-container--open .sidebar-header {
+    padding: 10px 12px;
+  }
+
+  .chat-split-container--open .sidebar-content {
+    padding: 12px;
   }
 }

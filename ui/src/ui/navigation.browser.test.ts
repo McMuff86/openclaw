@@ -179,10 +179,11 @@ describe("control UI routing", () => {
     if (split) {
       split.classList.add("chat-split-container--open");
       await app.updateComplete;
-      expect(getComputedStyle(split).position).toBe("fixed");
+      expect(getComputedStyle(split).position).not.toBe("fixed");
+      expect(getComputedStyle(split).flexDirection).toBe("column");
     }
     if (chatMain) {
-      expect(getComputedStyle(chatMain).display).toBe("none");
+      expect(getComputedStyle(chatMain).display).not.toBe("none");
     }
   });
 
